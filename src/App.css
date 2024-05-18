@@ -36,3 +36,163 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-color: hsl(230, 17%, 14%);
+  padding:2% 0;
+  font-family: "Inter", sans-serif;
+}
+
+label{
+  color: white;
+  display: inline-block;
+}
+
+.main-head-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main-head{
+  color: white;
+}
+.main-heading{ 
+  font-size: 1.6em;
+}
+
+
+ul{
+  list-style-type: none;
+}
+
+.main-card{
+  background-color: hsl(228, 28%, 20%);
+  color: white;
+  display: flexbox;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height: 220px;
+  
+}
+.fb-bt{
+  border-top: 5px solid hsl(208, 92%, 53%);
+}
+.tw-bt{
+  border-top: 5px solid hsl(208, 92%, 53%);
+}
+.in-bt{
+  border-top: 5px solid rgba(253,196,104,1);
+}
+.yt-bt{
+  border-top: 5px solid hsl(348, 97%, 39%);
+}
+
+.card-tag{
+  color:hsl(228, 34%, 66%);
+  font-weight: 600;
+  font-size: 0.8em;
+}
+
+.card-head{
+  font-weight: 700;
+  font-size: 3.5em;
+  margin-bottom: 0;
+  margin-top: 0px;
+  height: 80px;
+}
+.card-word{
+  word-spacing: 10px;
+  font-size: 0.8em;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.card-alert{
+  font-size: 0.75em;
+  font-weight: 600;
+  color:hsl(163, 72%, 41%);
+}
+
+/* overview.js */
+
+.icon{
+  height: 20px;
+  width: 20px;
+  display: block;
+}
+
+.second-heading{
+  color: white;
+  font-size: 1.4em;
+}
+
+.overview-card{
+  background-color: hsl(228, 28%, 20%);
+  color: white;
+  display: flex;
+  width:100%;
+  height: 120px;
+  padding:20px;
+}
+
+.overview-item{
+  display:inline-block;
+}
+
+.overview-head,.sub-head{
+  color:hsl(228, 34%, 66%);
+  font-weight: 600;
+}
+
+.one{
+  width: 100%;
+  display : flex;
+  justify-content: space-between;
+}
+
+.two{
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.desaturated-blue-text{
+  color:hsl(228, 34%, 66%)
+}
+
+/* Button */
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.button{
+  background-color: green;
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+.button::before{
+  position: absolute;
+  content: '';
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  margin: 2.5px;
+  transition: 0.2s;
+}
+input:checked + .button{
+  background-color: #d2d2d2;
+}
+input:checked + .button::before{
+  transform: translateX(25px);
+}
+input{
+  display: none;
+}
