@@ -1,26 +1,57 @@
 import "./App.css";
 import Overview from "./components/overview";
+import React,{useState} from "react";
 
 function App() {
+ const toggleText="Dark Mode";
+ const [lightTextStyle, setLightTextStyle] = useState({
+  color:'white'
+ });
+ const [mode, setMode] = useState('dark');
+ const [cardStyle, setCardStyle] = useState({
+  backgroundColor:'hsl(228, 28%, 20%)'
+ });
+ const [cardHeadStyle, setCardHeadStyle] = useState({
+  color:'white'
+ });
+
+  const toggleMode=()=>{
+    if(mode==='light'){
+      setMode('dark');
+      document.body.style.backgroundColor='hsl(230, 17%, 14%)';
+      document.body.style.color='white';
+      setCardStyle({backgroundColor:'hsl(228, 28%, 20%)'});
+      setCardHeadStyle({color:'white'});
+      setLightTextStyle({color:'white'});
+    }
+    else{
+      setMode('light');
+      document.body.style.backgroundColor='white';
+      document.body.style.color='black';
+      setCardStyle({backgroundColor:'hsl(227, 47%, 96%)'});
+      setCardHeadStyle({color:'hsl(230, 17%, 14%)'});
+      setLightTextStyle({color:'hsl(228, 12%, 44%)'})
+    }
+  }
+
   return (
     <div className="container">
       <div className="main-head-box">
         <div className="main-head">
           <h1 className="main-heading">Social Media Dashboard</h1>
-          <p className="sub-head">Total Followers: 23,004</p>
+          <p className="sub-head" style={lightTextStyle}>Total Followers: 23,004</p>
         </div>
         <div className="container-m">
-          Dark Mode
-          <input type="checkbox" id="check" />
-          <label htmlFor="check" class="button"></label>
+          <p className="toggleText mx-2" style={lightTextStyle}>{toggleText}</p>
+          <input type="checkbox" onClick={toggleMode} id="check" /><label htmlFor="check" className="button"></label>
         </div>
       </div>
 
       {/* first box */}
       <div className="row first-box my-4">
         <div className="col-lg-3">
-          <div className="card main-card fb-bt">
-            <p className="card-tag">
+          <div className="card main-card fb-bt" style={cardStyle}>
+            <p className="card-tag" style={lightTextStyle}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
                 <path
                   fill="#178FF5"
@@ -29,14 +60,14 @@ function App() {
               </svg>{" "}
               @nathanf
             </p>
-            <p className="card-head">1987</p>
-            <p className="card-word">Followers</p>
+            <p className="card-head" style={cardHeadStyle}>1987</p>
+            <p className="card-word" style={cardHeadStyle}>Followers</p>
             <p className="card-alert">12 Today</p>
           </div>
         </div>
         <div className="col-lg-3">
-          <div className="card main-card in-bt">
-            <p className="card-tag">
+          <div className="card main-card in-bt" style={cardStyle}>
+            <p className="card-tag" style={lightTextStyle}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
                 <defs>
                   <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
@@ -52,14 +83,14 @@ function App() {
               </svg>{" "}
               @nathanf
             </p>
-            <p className="card-head">1987</p>
-            <p className="card-word">Followers</p>
+            <p className="card-head" style={cardHeadStyle}>1987</p>
+            <p className="card-word" style={cardHeadStyle}>Followers</p>
             <p className="card-alert">12 Today</p>
           </div>
         </div>
         <div className="col-lg-3">
-          <div className="card main-card tw-bt">
-            <p className="card-tag">
+          <div className="card main-card tw-bt" style={cardStyle}>
+            <p className="card-tag" style={lightTextStyle}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17">
                 <path
                   fill="#1DA1F2"
@@ -68,14 +99,14 @@ function App() {
               </svg>{" "}
               @nathanf
             </p>
-            <p className="card-head">1987</p>
-            <p className="card-word">Followers</p>
+            <p className="card-head" style={cardHeadStyle}>1987</p>
+            <p className="card-word" style={cardHeadStyle}>Followers</p>
             <p className="card-alert">12 Today</p>
           </div>
         </div>
         <div className="col-lg-3">
-          <div className="card main-card yt-bt">
-            <p className="card-tag">
+          <div className="card main-card yt-bt" style={cardStyle}>
+            <p className="card-tag" style={lightTextStyle}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
                 <path
                   fill="#C4032B"
@@ -84,14 +115,14 @@ function App() {
               </svg>{" "}
               @nathanf
             </p>
-            <p className="card-head">1987</p>
-            <p className="card-word">Followers</p>
+            <p className="card-head" style={cardHeadStyle}>1987</p>
+            <p className="card-word" style={cardHeadStyle}>Followers</p>
             <p className="card-alert">12 Today</p>
           </div>
         </div>
       </div>
 
-      <Overview />
+      <Overview cardStyle={cardStyle} cardHeadStyle={cardHeadStyle} lightTextStyle={lightTextStyle}/>
     </div>
   );
 }
